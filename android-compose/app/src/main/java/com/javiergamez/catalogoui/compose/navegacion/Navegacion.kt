@@ -54,6 +54,7 @@ import com.javiergamez.catalogoui.compose.datos.CatalogoViewModel
 import com.javiergamez.catalogoui.compose.secciones.PantallaInicio
 import com.javiergamez.catalogoui.compose.secciones.Seccion1EntradaTexto
 import com.javiergamez.catalogoui.compose.secciones.Seccion2Botones
+import com.javiergamez.catalogoui.compose.secciones.Seccion3Seleccion
 import kotlinx.coroutines.launch
 
 const val RUTA_INICIO = "inicio"
@@ -188,6 +189,7 @@ private fun NavGraphBuilder.destinosSecciones(
             when (seccion) {
                 Seccion.ENTRADA_TEXTO -> Seccion1EntradaTexto(vm, onIrALista = { irA(Seccion.LISTAS.ruta) })
                 Seccion.BOTONES -> Seccion2Botones()
+                Seccion.SELECCION -> Seccion3Seleccion(vm)
                 else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text("Sección en construcción")
                 }
