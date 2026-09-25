@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/seccion4Fragment"
-        android:name="com.javiergamez.catalogoui.views.secciones.EnConstruccionFragment"
+        android:name="com.javiergamez.catalogoui.views.secciones.Seccion4Fragment"
         android:label="@string/seccion4" />
 
     <fragment
@@ -38,5 +38,14 @@
         android:id="@+id/seccion6Fragment"
         android:name="com.javiergamez.catalogoui.views.secciones.EnConstruccionFragment"
         android:label="@string/seccion6" />
+
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.javiergamez.catalogoui.views.secciones.DetalleFragment"
+        android:label="@string/titulo_detalle">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

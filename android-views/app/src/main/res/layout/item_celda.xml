@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="?attr/materialCardViewFilledStyle"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:layout_margin="4dp"
+    android:checkable="true"
+    app:cardCornerRadius="12dp"
+    app:checkedIcon="@null"
+    app:strokeColor="?attr/colorOnSurface">
+
+    <TextView
+        android:id="@+id/texto_celda"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/icono_celda"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:contentDescription="Seleccionada"
+        android:src="@drawable/ic_check_circle"
+        android:visibility="gone"
+        app:tint="@android:color/white" />
+</com.google.android.material.card.MaterialCardView>
