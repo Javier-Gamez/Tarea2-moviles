@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText,Autofill">
+
+    <LinearLayout style="@style/ContenidoSeccion">
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/encabezado_seccion" />
+
+        <!-- Campo de texto simple -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="TextInputLayout + TextInputEditText"
+            app:descripcion="Permite escribir una línea de texto. La etiqueta indica qué dato se espera y el texto de ayuda (placeholder) sugiere un ejemplo mientras está vacío."
+            app:nombre="Campo de texto simple">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Nombre"
+                app:placeholderText="Ej. Ana López"
+                app:startIconDrawable="@drawable/ic_person">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/campo_nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Variante rellena">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/campo_nombre_relleno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/resultado_nombre"
+                style="@style/TextoResultado"
+                android:text="Aún no has escrito nada." />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Campo con validación -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="TextInputLayout.setError / helperText"
+            app:descripcion="Revisa el contenido mientras se escribe y muestra un mensaje de error debajo del campo cuando el formato no es correcto, antes de enviar el formulario."
+            app:nombre="Campo con validación">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/capa_correo"
+                style="@style/CampoTexto"
+                android:hint="Correo electrónico *"
+                app:helperText="Campo obligatorio"
+                app:helperTextEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/campo_correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Contraseña -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="TextInputLayout(endIconMode=password_toggle)"
+            app:descripcion="Oculta los caracteres escritos para proteger información sensible. El ícono del ojo permite mostrar u ocultar el contenido para verificarlo."
+            app:nombre="Campo de contraseña">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/capa_clave"
+                style="@style/CampoTexto"
+                android:hint="Contraseña"
+                app:endIconMode="password_toggle"
+                app:helperText="Escribe al menos 8 caracteres"
+                app:startIconDrawable="@drawable/ic_lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/campo_clave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Tipos de teclado -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="EditText android:inputType"
+            app:descripcion="Cada campo solicita al sistema el teclado más adecuado para el dato: solo números, con arroba para correos o con el marcador telefónico."
+            app:nombre="Tipos de teclado">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Edad (numérico)"
+                app:startIconDrawable="@drawable/ic_cake">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Correo (teclado de correo)"
+                app:startIconDrawable="@drawable/ic_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Teléfono (marcador)"
+                app:startIconDrawable="@drawable/ic_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="15" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Multilínea -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="TextInputEditText(textMultiLine) + counterEnabled"
+            app:descripcion="Admite varias líneas para textos largos como comentarios o notas. Crece conforme se escribe y un contador indica cuántos caracteres quedan."
+            app:nombre="Campo multilínea">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Comentarios"
+                app:counterEnabled="true"
+                app:counterMaxLength="200">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLength="200"
+                    android:maxLines="6"
+                    android:minLines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Sugerencias -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialAutoCompleteTextView + ArrayAdapter"
+            app:descripcion="Muestra opciones que coinciden con lo que se va escribiendo, de modo que el usuario puede completar el dato con un toque y evitar errores de captura."
+            app:nombre="Campo con sugerencias">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Estado de la República">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/campo_estado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:completionThreshold="1"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/resultado_estado"
+                style="@style/TextoResultado"
+                android:text="Empieza a escribir para ver sugerencias." />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Barra de búsqueda -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="androidx.appcompat.widget.SearchView"
+            app:descripcion="Campo especializado para buscar contenido. Filtra los resultados en tiempo real mientras se escribe y ofrece un botón para limpiar la consulta."
+            app:nombre="Barra de búsqueda">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/busqueda"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/fondo_busqueda"
+                app:iconifiedByDefault="false"
+                app:queryHint="Buscar componente…" />
+
+            <LinearLayout
+                android:id="@+id/resultados_busqueda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/resultado_busqueda"
+                style="@style/TextoResultado" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Conexión con la Sección 4 -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="TextInputLayout + MaterialButton + ViewModel compartido"
+            app:descripcion="Lo que captures aquí se agrega al inicio de la lista vertical de la Sección 4. Ambos Fragments comparten el mismo ViewModel (activityViewModels)."
+            app:nombre="Conexión con la Sección 4">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Título del elemento *">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/campo_titulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CampoTexto"
+                android:hint="Descripción (opcional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/campo_descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_agregar"
+                    style="@style/Widget.Material3.Button.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="Agregar a la lista"
+                    app:icon="@drawable/ic_playlist_add" />
+
+                <TextView
+                    android:id="@+id/total_elementos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
