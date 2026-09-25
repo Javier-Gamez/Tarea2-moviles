@@ -8,9 +8,9 @@ Cada versión tiene una pantalla principal y seis secciones. Cada elemento del c
 
 | Campo | Valor |
 |---|---|
-| Nombre completo | _Pendiente_ |
-| Número de boleta | _Pendiente_ |
-| Grupo | _Pendiente_ |
+| Nombre completo | Javier de Jesús Gamez Rosas |
+| Número de boleta | 2022630007 |
+| Grupo | 7CV4 |
 | Materia | Aplicaciones Móviles |
 
 ## Tecnologías utilizadas
