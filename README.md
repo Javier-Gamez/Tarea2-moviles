@@ -194,7 +194,7 @@ Componente principal usado para cada elemento del catálogo en cada tecnología.
 
 ## Capturas de pantalla
 
-Todas las capturas se tomaron de los APK de release incluidos en `apks/`, en un emulador Pixel 7 con Android 17.
+Todas las capturas se tomaron de los APK de release incluidos en `apks/`, instalados en un Samsung Galaxy S21 Ultra.
 
 ### Pantalla principal
 
