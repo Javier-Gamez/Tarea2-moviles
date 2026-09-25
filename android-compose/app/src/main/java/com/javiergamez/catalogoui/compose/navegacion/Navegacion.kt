@@ -55,6 +55,8 @@ import com.javiergamez.catalogoui.compose.secciones.PantallaInicio
 import com.javiergamez.catalogoui.compose.secciones.Seccion1EntradaTexto
 import com.javiergamez.catalogoui.compose.secciones.Seccion2Botones
 import com.javiergamez.catalogoui.compose.secciones.Seccion3Seleccion
+import com.javiergamez.catalogoui.compose.secciones.Seccion4Listas
+import com.javiergamez.catalogoui.compose.secciones.PantallaDetalle
 import kotlinx.coroutines.launch
 
 const val RUTA_INICIO = "inicio"
@@ -190,6 +192,7 @@ private fun NavGraphBuilder.destinosSecciones(
                 Seccion.ENTRADA_TEXTO -> Seccion1EntradaTexto(vm, onIrALista = { irA(Seccion.LISTAS.ruta) })
                 Seccion.BOTONES -> Seccion2Botones()
                 Seccion.SELECCION -> Seccion3Seleccion(vm)
+                Seccion.LISTAS -> Seccion4Listas(vm, onDetalle = { id -> nav.navigate("$RUTA_DETALLE/$id") })
                 else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text("Sección en construcción")
                 }
@@ -199,9 +202,11 @@ private fun NavGraphBuilder.destinosSecciones(
     composable(
         route = "$RUTA_DETALLE/{id}",
         arguments = listOf(navArgument("id") { type = NavType.IntType }),
-    ) {
-        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text("Detalle en construcción")
-        }
+    ) { entrada ->
+        PantallaDetalle(
+            vm = vm,
+            id = entrada.arguments?.getInt("id") ?: -1,
+            onRegresar = { nav.popBackStack() },
+        )
     }
 }
