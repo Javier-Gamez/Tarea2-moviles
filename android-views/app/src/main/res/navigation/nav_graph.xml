@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/seccion2Fragment"
-        android:name="com.javiergamez.catalogoui.views.secciones.EnConstruccionFragment"
+        android:name="com.javiergamez.catalogoui.views.secciones.Seccion2Fragment"
         android:label="@string/seccion2" />
 
     <fragment

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout style="@style/ContenidoSeccion">
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/encabezado_seccion" />
+
+        <!-- Relleno, contorno y texto -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialButton (Filled / Outlined / Text)"
+            app:descripcion="Los tres niveles de énfasis de un botón. El relleno se usa para la acción principal, el de contorno para acciones secundarias y el de texto para las menos importantes."
+            app:nombre="Botón relleno, con contorno y de texto">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_relleno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Relleno" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_contorno"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contorno" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_texto"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Texto" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/resultado_basicos"
+                style="@style/TextoResultado"
+                android:text="Pulsaciones → relleno: 0 · contorno: 0 · texto: 0" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Botones con ícono -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialButton (IconButton / IconButton.Filled / Button.Icon)"
+            app:descripcion="Un ícono comunica la acción de forma compacta. Los botones de solo ícono ahorran espacio y los que combinan ícono y texto son más claros."
+            app:nombre="Botones con ícono">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_favorito"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Favorito"
+                    app:icon="@drawable/ic_favorite_border" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_compartir"
+                    style="@style/Widget.Material3.Button.IconButton.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Compartir"
+                    app:icon="@drawable/ic_share" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_enviar"
+                    style="@style/Widget.Material3.Button.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Enviar"
+                    app:icon="@drawable/ic_send" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resultado_iconos"
+                style="@style/TextoResultado"
+                android:text="Pulsa alguno de los botones." />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- FAB -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="FloatingActionButton / ExtendedFloatingActionButton"
+            app:descripcion="Representa la acción más importante de una pantalla y flota sobre el contenido. La versión extendida agrega una etiqueta y puede contraerse al desplazarse."
+            app:nombre="Botón de acción flotante">
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/interruptor_extendido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Mostrar etiqueta del FAB extendido" />
+
+            <FrameLayout
+                style="@style/FondoDemo"
+                android:layout_height="140dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/texto_creados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Elementos creados: 0"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="8dp"
+                    android:contentDescription="Crear"
+                    app:srcCompat="@drawable/ic_add" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/fab_extendido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="8dp"
+                    android:text="Redactar"
+                    app:icon="@drawable/ic_edit" />
+            </FrameLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Alternancia y segmentado -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialButtonToggleGroup / MaterialButton(checkable)"
+            app:descripcion="Permiten activar o desactivar una opción o elegir una entre varias relacionadas. El estado seleccionado queda resaltado visualmente."
+            app:nombre="Botón de alternancia y selector segmentado">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/grupo_vista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/vista_dia"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/vista_dia"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Día" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/vista_semana"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Semana" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/vista_mes"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mes" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_guardar"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:contentDescription="Guardar"
+                    app:icon="@drawable/ic_bookmark_border" />
+
+                <TextView
+                    android:id="@+id/texto_guardado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sin guardar" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resultado_vista"
+                style="@style/TextoResultado"
+                android:text="Vista seleccionada: Día" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Deshabilitado y carga -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="android:enabled + IndeterminateDrawable"
+            app:descripcion="Un botón deshabilitado indica que la acción aún no está disponible. El estado de carga evita pulsaciones repetidas mientras se completa una operación."
+            app:nombre="Botón deshabilitado y en estado de carga">
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/interruptor_habilitar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Habilitar botón" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_deshabilitado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="Deshabilitado" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_descargar"
+                    style="@style/Widget.Material3.Button.TonalButton.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descargar"
+                    app:icon="@drawable/ic_cloud_download" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/resultado_descargas"
+                style="@style/TextoResultado"
+                android:text="Descargas completadas: 0" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
