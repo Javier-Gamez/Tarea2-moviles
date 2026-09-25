@@ -52,6 +52,7 @@ import androidx.navigation.navArgument
 import com.javiergamez.catalogoui.compose.componentes.LocalSnackbar
 import com.javiergamez.catalogoui.compose.datos.CatalogoViewModel
 import com.javiergamez.catalogoui.compose.secciones.PantallaInicio
+import com.javiergamez.catalogoui.compose.secciones.Seccion1EntradaTexto
 import kotlinx.coroutines.launch
 
 const val RUTA_INICIO = "inicio"
@@ -183,8 +184,11 @@ private fun NavGraphBuilder.destinosSecciones(
 ) {
     Seccion.entries.forEach { seccion ->
         composable(seccion.ruta) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Sección en construcción")
+            when (seccion) {
+                Seccion.ENTRADA_TEXTO -> Seccion1EntradaTexto(vm, onIrALista = { irA(Seccion.LISTAS.ruta) })
+                else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text("Sección en construcción")
+                }
             }
         }
     }
