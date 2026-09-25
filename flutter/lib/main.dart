@@ -5,6 +5,7 @@ import 'estado.dart';
 import 'pantallas/inicio.dart';
 import 'pantallas/seccion1_entrada_texto.dart';
 import 'pantallas/seccion2_botones.dart';
+import 'pantallas/seccion3_seleccion.dart';
 import 'secciones.dart';
 
 void main() {
@@ -59,6 +60,7 @@ Widget _pantallaDe(Seccion seccion) {
   return switch (seccion) {
     Seccion.entradaTexto => const Seccion1EntradaTexto(),
     Seccion.botones => const Seccion2Botones(),
+    Seccion.seleccion => const Seccion3Seleccion(),
     _ => _EnConstruccion(seccion: seccion),
   };
 }
