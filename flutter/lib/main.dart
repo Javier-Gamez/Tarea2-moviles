@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'estado.dart';
 import 'pantallas/inicio.dart';
+import 'pantallas/seccion1_entrada_texto.dart';
 import 'secciones.dart';
 
 void main() {
@@ -46,11 +47,18 @@ class CatalogoApp extends StatelessWidget {
         initialRoute: rutaInicio,
         routes: {
           rutaInicio: (_) => const PantallaInicio(),
-          for (final s in Seccion.values) s.ruta: (_) => _EnConstruccion(seccion: s),
+          for (final s in Seccion.values) s.ruta: (_) => _pantallaDe(s),
         },
       ),
     );
   }
+}
+
+Widget _pantallaDe(Seccion seccion) {
+  return switch (seccion) {
+    Seccion.entradaTexto => const Seccion1EntradaTexto(),
+    _ => _EnConstruccion(seccion: seccion),
+  };
 }
 
 class _EnConstruccion extends StatelessWidget {
