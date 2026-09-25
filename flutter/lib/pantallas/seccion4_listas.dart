@@ -222,6 +222,7 @@ class _CuadriculaState extends State<_Cuadricula> {
           mainAxisSpacing: 8,
           crossAxisSpacing: 8,
           childAspectRatio: 1.5,
+          padding: EdgeInsets.zero,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           children: [

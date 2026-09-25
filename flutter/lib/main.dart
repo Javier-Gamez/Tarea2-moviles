@@ -8,6 +8,7 @@ import 'pantallas/seccion2_botones.dart';
 import 'pantallas/seccion3_seleccion.dart';
 import 'pantallas/seccion4_listas.dart';
 import 'pantallas/seccion5_informacion.dart';
+import 'pantallas/seccion6_contenedores.dart';
 import 'secciones.dart';
 
 void main() {
@@ -66,20 +67,6 @@ Widget _pantallaDe(Seccion seccion) {
     Seccion.seleccion => const Seccion3Seleccion(),
     Seccion.listas => const Seccion4Listas(),
     Seccion.informacion => const Seccion5Informacion(),
-    _ => _EnConstruccion(seccion: seccion),
+    Seccion.contenedores => const Seccion6Contenedores(),
   };
-}
-
-class _EnConstruccion extends StatelessWidget {
-  const _EnConstruccion({required this.seccion});
-
-  final Seccion seccion;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(seccion.titulo)),
-      body: const Center(child: Text('Sección en construcción')),
-    );
-  }
 }
