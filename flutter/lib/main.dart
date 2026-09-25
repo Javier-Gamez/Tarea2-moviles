@@ -6,6 +6,7 @@ import 'pantallas/inicio.dart';
 import 'pantallas/seccion1_entrada_texto.dart';
 import 'pantallas/seccion2_botones.dart';
 import 'pantallas/seccion3_seleccion.dart';
+import 'pantallas/seccion4_listas.dart';
 import 'secciones.dart';
 
 void main() {
@@ -50,6 +51,7 @@ class CatalogoApp extends StatelessWidget {
         routes: {
           rutaInicio: (_) => const PantallaInicio(),
           for (final s in Seccion.values) s.ruta: (_) => _pantallaDe(s),
+          rutaDetalle: (_) => const PantallaDetalle(),
         },
       ),
     );
@@ -61,6 +63,7 @@ Widget _pantallaDe(Seccion seccion) {
     Seccion.entradaTexto => const Seccion1EntradaTexto(),
     Seccion.botones => const Seccion2Botones(),
     Seccion.seleccion => const Seccion3Seleccion(),
+    Seccion.listas => const Seccion4Listas(),
     _ => _EnConstruccion(seccion: seccion),
   };
 }
