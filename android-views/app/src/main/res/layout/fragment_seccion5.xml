@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout style="@style/ContenidoSeccion">
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/encabezado_seccion" />
+
+        <!-- Textos -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="TextView + textAppearance + SpannableString"
+            app:descripcion="La tipografía establece jerarquía: títulos grandes, cuerpo legible y etiquetas pequeñas. El tamaño de estos ejemplos depende de la opción elegida en la Sección 3."
+            app:nombre="Textos con distintos estilos">
+
+            <LinearLayout
+                android:id="@+id/muestras_texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Titular grande"
+                    android:textAppearance="?attr/textAppearanceHeadlineMedium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Título de sección"
+                    android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Texto de cuerpo para párrafos largos."
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ETIQUETA PEQUEÑA"
+                    android:textAppearance="?attr/textAppearanceLabelSmall" />
+
+                <TextView
+                    android:id="@+id/texto_enriquecido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+            </LinearLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aplica énfasis a la frase de ejemplo:"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_negrita"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Negrita" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_cursiva"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cursiva" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_subrayado"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subrayado" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/frase_ejemplo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="El diseño es cómo funciona."
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/resultado_tamano"
+                    style="@style/TextoResultado"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_ir_seccion3"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cambiar en Sección 3" />
+            </LinearLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Imágenes -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="ImageView (scaleType) + Coil"
+            app:descripcion="La primera imagen está incluida en la aplicación y la segunda se descarga de internet. El modo de escalado define cómo se adapta la imagen a su contenedor."
+            app:nombre="Imagen local e imagen desde URL">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/grupo_escalado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/escala_recortar"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/escala_recortar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="Recortar"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/escala_ajustar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="Ajustar"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/escala_estirar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="Estirar"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/escala_original"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="Original"
+                    android:textSize="12sp" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imagen_local"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:background="?attr/colorSurfaceContainerHighest"
+                        android:contentDescription="Paisaje de montañas incluido en la app"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/paisaje"
+                        app:shapeAppearanceOverlay="@style/FormaRedondeada" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Local (drawable)"
+                        android:textAppearance="?attr/textAppearanceLabelMedium" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imagen_red"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?attr/colorSurfaceContainerHighest"
+                            android:contentDescription="Fotografía descargada de internet"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/FormaRedondeada" />
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/carga_imagen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:indeterminate="true" />
+
+                        <TextView
+                            android:id="@+id/error_imagen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawablePadding="4dp"
+                            android:gravity="center"
+                            android:text="Sin conexión"
+                            android:textAppearance="?attr/textAppearanceLabelSmall"
+                            android:visibility="gone"
+                            app:drawableTopCompat="@drawable/ic_broken_image" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Desde URL (Coil)"
+                        android:textAppearance="?attr/textAppearanceLabelMedium" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resultado_escalado"
+                style="@style/TextoResultado"
+                android:text="Modo de escalado: Recortar" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Progreso -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="LinearProgressIndicator / CircularProgressIndicator"
+            app:descripcion="Informan que una tarea está en curso. El modo determinado muestra el porcentaje avanzado; el indeterminado solo indica que se está trabajando."
+            app:nombre="Indicadores de progreso">
+
+            <TextView
+                android:id="@+id/texto_progreso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Determinado: 0 %"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/lineal_determinado"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:max="100" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/circular_determinado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:max="100" />
+            </LinearLayout>
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_iniciar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Iniciar" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_reiniciar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reiniciar" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/interruptor_indeterminados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Mostrar indeterminados" />
+
+            <LinearLayout
+                android:id="@+id/indeterminados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:indeterminate="true" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true" />
+            </LinearLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Toast y snackbar -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="Toast / Snackbar"
+            app:descripcion="El toast es un aviso breve del sistema que desaparece solo. El snackbar aparece en la parte inferior de la app y puede incluir una acción, como deshacer."
+            app:nombre="Toast y Snackbar">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_toast"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mostrar toast" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_snackbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mostrar snackbar" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/resultado_avisos"
+                style="@style/TextoResultado"
+                android:text="Estado: en la bandeja" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Diálogo -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialAlertDialogBuilder"
+            app:descripcion="Interrumpe al usuario para confirmar una acción importante o irreversible. Presenta un título, una explicación y botones para aceptar o cancelar."
+            app:nombre="Diálogo de confirmación">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_dialogo"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar archivo"
+                app:icon="@drawable/ic_delete" />
+
+            <TextView
+                android:id="@+id/resultado_dialogo"
+                style="@style/TextoResultado"
+                android:text="Aún no se ha abierto el diálogo." />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Hoja inferior -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="BottomSheetDialog"
+            app:descripcion="Panel que se desliza desde la parte inferior con opciones adicionales relacionadas con el contenido. Se cierra deslizándola hacia abajo o tocando fuera."
+            app:nombre="Hoja inferior">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_hoja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abrir hoja inferior" />
+
+            <TextView
+                android:id="@+id/resultado_hoja"
+                style="@style/TextoResultado"
+                android:text="Ninguna opción elegida." />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Tarjeta, separador y badge -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialCardView / MaterialDivider / BadgeDrawable"
+            app:descripcion="La tarjeta agrupa información relacionada, el separador divide contenido visualmente y el distintivo (badge) muestra un contador sobre un ícono."
+            app:nombre="Tarjeta, separador y distintivo">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp">
+
+                            <ImageView
+                                android:id="@+id/icono_notificaciones"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Notificaciones"
+                                android:src="@drawable/ic_notifications" />
+                        </FrameLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="1dp"
+                            android:layout_height="40dp"
+                            android:layout_marginHorizontal="16dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Notificaciones"
+                                android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                            <TextView
+                                android:id="@+id/texto_notificaciones"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/boton_leidas"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Marcar como leídas" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/boton_recibir"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recibir una" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

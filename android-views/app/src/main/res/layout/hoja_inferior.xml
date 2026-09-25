@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="24dp"
+    tools:ignore="HardcodedText">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="8dp"
+        android:text="Compartir foto"
+        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+    <TextView
+        android:id="@+id/opcion_compartir"
+        style="@style/OpcionHoja"
+        android:text="Compartir"
+        app:drawableStartCompat="@drawable/ic_share" />
+
+    <TextView
+        android:id="@+id/opcion_copiar"
+        style="@style/OpcionHoja"
+        android:text="Copiar enlace"
+        app:drawableStartCompat="@drawable/ic_content_copy" />
+
+    <TextView
+        android:id="@+id/opcion_descargar"
+        style="@style/OpcionHoja"
+        android:text="Descargar"
+        app:drawableStartCompat="@drawable/ic_download" />
+</LinearLayout>

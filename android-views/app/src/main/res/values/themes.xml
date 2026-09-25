@@ -61,6 +61,21 @@
         <item name="android:padding">16dp</item>
     </style>
 
+    <style name="FormaRedondeada">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="OpcionHoja">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:drawablePadding">24dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+        <item name="drawableTint">?attr/colorOnSurfaceVariant</item>
+    </style>
+
     <style name="FondoDemo">
         <item name="android:layout_width">match_parent</item>
         <item name="android:padding">8dp</item>
