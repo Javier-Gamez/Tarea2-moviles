@@ -56,6 +56,7 @@ import com.javiergamez.catalogoui.compose.secciones.Seccion1EntradaTexto
 import com.javiergamez.catalogoui.compose.secciones.Seccion2Botones
 import com.javiergamez.catalogoui.compose.secciones.Seccion3Seleccion
 import com.javiergamez.catalogoui.compose.secciones.Seccion4Listas
+import com.javiergamez.catalogoui.compose.secciones.Seccion5Informacion
 import com.javiergamez.catalogoui.compose.secciones.PantallaDetalle
 import kotlinx.coroutines.launch
 
@@ -193,6 +194,7 @@ private fun NavGraphBuilder.destinosSecciones(
                 Seccion.BOTONES -> Seccion2Botones()
                 Seccion.SELECCION -> Seccion3Seleccion(vm)
                 Seccion.LISTAS -> Seccion4Listas(vm, onDetalle = { id -> nav.navigate("$RUTA_DETALLE/$id") })
+                Seccion.INFORMACION -> Seccion5Informacion(vm, onIrASeleccion = { irA(Seccion.SELECCION.ruta) })
                 else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text("Sección en construcción")
                 }
