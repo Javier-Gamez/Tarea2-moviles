@@ -247,20 +247,19 @@ Todas las capturas se tomaron de los APK de release incluidos en `apks/`, instal
 
 ## Reflexión final
 
-<!-- Revisa y reescribe esta sección con tu propia experiencia antes de entregar. -->
+**¿En cuál tecnología fue más rápido construir la interfaz?**
+En Jetpack Compose. Como la interfaz y su estado se escriben en el mismo lugar, no tuve que ir y venir entre archivos XML y código Kotlin, y casi todos los componentes de Material 3 ya existen listos para usarse. Flutter fue casi igual de rápido porque me ayudó mucho la recarga en caliente y que trae integradas cosas que en Android requieren bibliotecas, como cargar imágenes desde internet. 
+Para la misma funcionalidad terminé con más de 30 archivos entre Kotlin y XML, contra 12 archivos en Compose y 11 en Flutter.
 
-**Tamaño del código.** Para la misma funcionalidad, la versión con Views necesitó unas 1,500 líneas de Kotlin más unas 2,900 de XML repartidas en más de 30 archivos. La versión con Compose quedó en unas 3,000 líneas de Kotlin en 12 archivos y la de Flutter en unas 3,400 líneas de Dart en 11 archivos.
+**¿Cuál generó código más legible?**
+Compose. Cada demostración cabe en una sola función, con su estado junto a la vista que lo usa, y se lee de arriba hacia abajo tal como aparece en pantalla. Flutter también es declarativo, pero cada widget con estado necesita dos clases (`StatefulWidget` y `State`) y los widgets anidados hacen que el código crezca hacia la derecha muy rápido. En Views el XML permite ver claramente la estructura visual, pero el comportamiento queda en otro archivo y hay que seguir los ids para entender qué hace cada cosa.
 
-**¿Cuál fue más rápida de construir?** Jetpack Compose. Declarar la interfaz y su estado en el mismo lugar evitó ir y venir entre el layout y el código, y la mayoría de los componentes de Material 3 ya existen con el comportamiento esperado. Flutter fue casi igual de rápido; su ventaja es que la recarga en caliente y un SDK autocontenido (imágenes de red, localización y selectores incluidos) evitan dependencias extra. Views fue la más lenta: cada elemento requiere el layout XML, los ids, el ViewBinding y los listeners por separado, y listas como la de "deslizar para eliminar" requieren un adaptador y dibujar el fondo a mano.
+**¿Qué dificultades encontré en cada una?**
+- **Views y XML:** conectar el menú lateral con el Navigation Component y la barra superior, manejar los márgenes del sistema con edge-to-edge, porque la barra de navegación inferior de ejemplo agregaba un espacio extra
+- **Jetpack Compose:** varias APIs de Material 3 todavía son experimentales y cambian de nombre entre versiones, así que algunos ejemplos que encontré en internet ya no compilaban. 
 
-**¿Cuál generó código más legible?** Compose. Cada demostración cabe en una sola función, con su estado (`remember`) al lado de la vista que lo usa. En Flutter el código es igual de declarativo, pero cada demostración con estado necesita dos clases (`StatefulWidget` y `State`) y el anidamiento de widgets crece rápido. En Views la estructura visual es fácil de leer en el XML, pero el comportamiento queda separado en el Fragment y hay que seguir los ids entre archivos.
-
-**Dificultades encontradas.**
-- *Views:* conectar el `DrawerLayout` con Navigation Component y la barra superior, manejar los márgenes del sistema con edge-to-edge (la barra inferior de ejemplo agregaba un relleno inesperado), la falta de encabezados fijos en `RecyclerView` y la casilla de tres estados, que requiere `MaterialCheckBox`.
-- *Compose:* algunas APIs de Material 3 siguen siendo experimentales (`@OptIn`), cambian de nombre entre versiones (`ExposedDropdownMenuAnchorType`) y el `TimePicker` tuvo que envolverse en un `AlertDialog`. Además, las listas `Lazy*` dentro de otra lista necesitan una altura fija.
-- *Flutter:* no existe un toast, así que hubo que construirlo con un `Overlay`. También cambiaron APIs recientes (`RadioGroup`, `persist` en `SnackBar`), y para que las demostraciones conserven su estado al desplazarse se usó `SingleChildScrollView` en lugar de `ListView`, que destruye los widgets que salen de la pantalla.
-
-**¿Con cuál preferiría trabajar?** Para una app solo de Android, con Jetpack Compose, por la velocidad de desarrollo y la legibilidad. Si la app tuviera que llegar también a iOS, Flutter, porque ofrece una experiencia de desarrollo muy parecida y un solo código para ambas plataformas. Views sigue siendo importante para mantener proyectos existentes, pero no lo elegiría para uno nuevo.
+**¿Con cuál preferiría trabajar?**
+Para una aplicación solo de Android, con Jetpack Compose, por la rapidez para construir la interfaz y lo fácil que es leer y modificar el código. Si la aplicación también tuviera que funcionar en iOS, elegiría Flutter, porque la forma de trabajar es muy parecida y con un solo código se cubren ambas plataformas
 
 ## Referencias
 
