@@ -1,8 +1,6 @@
 package com.javiergamez.catalogoui.compose.navegacion
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -36,9 +34,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
@@ -57,6 +55,7 @@ import com.javiergamez.catalogoui.compose.secciones.Seccion2Botones
 import com.javiergamez.catalogoui.compose.secciones.Seccion3Seleccion
 import com.javiergamez.catalogoui.compose.secciones.Seccion4Listas
 import com.javiergamez.catalogoui.compose.secciones.Seccion5Informacion
+import com.javiergamez.catalogoui.compose.secciones.Seccion6Contenedores
 import com.javiergamez.catalogoui.compose.secciones.PantallaDetalle
 import kotlinx.coroutines.launch
 
@@ -142,6 +141,8 @@ fun AppCatalogo(vm: CatalogoViewModel = viewModel()) {
                                 seccionActual != null -> seccionActual.titulo
                                 else -> "Catálogo de UI"
                             },
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                         )
                     },
                     navigationIcon = {
@@ -195,9 +196,7 @@ private fun NavGraphBuilder.destinosSecciones(
                 Seccion.SELECCION -> Seccion3Seleccion(vm)
                 Seccion.LISTAS -> Seccion4Listas(vm, onDetalle = { id -> nav.navigate("$RUTA_DETALLE/$id") })
                 Seccion.INFORMACION -> Seccion5Informacion(vm, onIrASeleccion = { irA(Seccion.SELECCION.ruta) })
-                else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("Sección en construcción")
-                }
+                Seccion.CONTENEDORES -> Seccion6Contenedores()
             }
         }
     }
