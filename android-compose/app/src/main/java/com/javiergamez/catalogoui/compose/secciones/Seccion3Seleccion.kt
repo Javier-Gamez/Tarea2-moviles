@@ -101,7 +101,7 @@ fun Seccion3Seleccion(vm: CatalogoViewModel) {
                     ),
                 ) {
                     TriStateCheckbox(state = estadoGeneral, onClick = null)
-                    Text("Todos los ingredientes", style = MaterialTheme.typography.titleSmall)
+                    Text("Todos los ingredientes", style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(start = 8.dp))
                 }
                 Column(Modifier.padding(start = 24.dp)) {
                     ingredientes.forEachIndexed { i, nombre ->
@@ -114,7 +114,7 @@ fun Seccion3Seleccion(vm: CatalogoViewModel) {
                             ),
                         ) {
                             Checkbox(checked = marcados[i], onCheckedChange = null)
-                            Text(nombre)
+                            Text(nombre, modifier = Modifier.padding(start = 8.dp))
                         }
                     }
                 }
