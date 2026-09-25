@@ -1,17 +1,22 @@
-# catalogo_ui
+# Catálogo UI: versión Flutter
 
-Catálogo interactivo de elementos de interfaz
+Versión en Flutter del catálogo interactivo de elementos de interfaz. La descripción completa, la tabla de equivalencias y las capturas están en el [README principal](../README.md).
 
-## Getting Started
+## Ejecución
 
-This project is a starting point for a Flutter application.
+```bash
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Estructura
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+lib/
+  main.dart                 Tema claro/oscuro, localización en español y rutas
+  estado.dart               Estado compartido entre secciones (ChangeNotifier)
+  secciones.dart            Definición de las seis secciones
+  widgets/comunes.dart      Menú lateral, tarjeta de documentación, toast y snackbar
+  pantallas/                Pantalla principal, seis secciones y detalle
+test/widget_test.dart       Pruebas de la pantalla principal y del estado
+```
