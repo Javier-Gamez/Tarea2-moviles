@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'estado.dart';
 import 'pantallas/inicio.dart';
 import 'pantallas/seccion1_entrada_texto.dart';
+import 'pantallas/seccion2_botones.dart';
 import 'secciones.dart';
 
 void main() {
@@ -57,6 +58,7 @@ class CatalogoApp extends StatelessWidget {
 Widget _pantallaDe(Seccion seccion) {
   return switch (seccion) {
     Seccion.entradaTexto => const Seccion1EntradaTexto(),
+    Seccion.botones => const Seccion2Botones(),
     _ => _EnConstruccion(seccion: seccion),
   };
 }
