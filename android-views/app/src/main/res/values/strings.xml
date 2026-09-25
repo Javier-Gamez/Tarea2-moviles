@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Catálogo UI Views</string>
+    <string name="titulo_inicio">Catálogo de UI</string>
+    <string name="titulo_detalle">Detalle del elemento</string>
+    <string name="seccion1">Entrada de texto</string>
+    <string name="seccion2">Botones y acciones</string>
+    <string name="seccion3">Elementos de selección</string>
+    <string name="seccion4">Listas y colecciones</string>
+    <string name="seccion5">Información y retroalimentación</string>
+    <string name="seccion6">Contenedores y estructura</string>
+    <string name="menu_abrir">Abrir menú</string>
+    <string name="menu_cerrar">Cerrar menú</string>
+    <string name="ir_inicio">Ir a la pantalla principal</string>
+</resources>

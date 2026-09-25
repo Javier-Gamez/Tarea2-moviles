@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos de la tarjeta que documenta cada elemento del catálogo. -->
+    <declare-styleable name="ElementoCatalogoView">
+        <attr name="nombre" format="string" />
+        <attr name="componente" format="string" />
+        <attr name="descripcion" format="string" />
+    </declare-styleable>
+</resources>
