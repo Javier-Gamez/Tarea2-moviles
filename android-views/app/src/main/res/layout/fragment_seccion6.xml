@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout style="@style/ContenidoSeccion">
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/encabezado_seccion" />
+
+        <!-- Fila -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="LinearLayout (orientation=horizontal) + gravity"
+            app:descripcion="Coloca los elementos uno junto a otro de forma horizontal. La gravedad define hacia dónde se agrupan y los pesos permiten repartir el espacio libre."
+            app:nombre="Distribución en fila">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/opciones_fila"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/fila_inicio"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fila_inicio"
+                    style="@style/BotonSegmento"
+                    android:text="Inicio" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fila_centro"
+                    style="@style/BotonSegmento"
+                    android:text="Centro" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fila_final"
+                    style="@style/BotonSegmento"
+                    android:text="Final" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fila_repartido"
+                    style="@style/BotonSegmento"
+                    android:text="Repartir" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <LinearLayout
+                android:id="@+id/demo_fila"
+                style="@style/FondoDemo"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Bloque"
+                    android:background="@drawable/bloque_a"
+                    android:text="A" />
+
+                <TextView
+                    style="@style/Bloque"
+                    android:layout_marginHorizontal="6dp"
+                    android:background="@drawable/bloque_b"
+                    android:text="B" />
+
+                <TextView
+                    style="@style/Bloque"
+                    android:background="@drawable/bloque_c"
+                    android:text="C" />
+            </LinearLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Columna -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="LinearLayout (orientation=vertical) + gravity"
+            app:descripcion="Apila los elementos de arriba hacia abajo. La gravedad horizontal decide si se pegan a la izquierda, al centro o a la derecha."
+            app:nombre="Distribución en columna">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/opciones_columna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/columna_izquierda"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/columna_izquierda"
+                    style="@style/BotonSegmento"
+                    android:text="Izquierda" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/columna_centro"
+                    style="@style/BotonSegmento"
+                    android:text="Centro" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/columna_derecha"
+                    style="@style/BotonSegmento"
+                    android:text="Derecha" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <LinearLayout
+                android:id="@+id/demo_columna"
+                style="@style/FondoDemo"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Bloque"
+                    android:layout_width="120dp"
+                    android:background="@drawable/bloque_a"
+                    android:text="A" />
+
+                <TextView
+                    style="@style/Bloque"
+                    android:layout_width="80dp"
+                    android:layout_marginVertical="6dp"
+                    android:background="@drawable/bloque_b"
+                    android:text="B" />
+
+                <TextView
+                    style="@style/Bloque"
+                    android:layout_width="160dp"
+                    android:background="@drawable/bloque_c"
+                    android:text="C" />
+            </LinearLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Superpuesta -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="FrameLayout + layout_gravity"
+            app:descripcion="Coloca los elementos uno sobre otro, como capas. Es útil para poner texto o botones sobre una imagen. Elige dónde colocar la etiqueta."
+            app:nombre="Distribución superpuesta">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/opciones_capa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/capa_abajo"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/capa_arriba"
+                    style="@style/BotonSegmento"
+                    android:text="Arriba" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/capa_centro"
+                    style="@style/BotonSegmento"
+                    android:text="Centro" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/capa_abajo"
+                    style="@style/BotonSegmento"
+                    android:text="Abajo" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="12dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/paisaje" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/degradado_oscuro" />
+
+                    <TextView
+                        android:id="@+id/etiqueta_capa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="12dp"
+                        android:background="@drawable/fondo_etiqueta_capa"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="Capa de texto"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Desplazamiento vertical -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="NestedScrollView / ScrollView"
+            app:descripcion="Permite ver contenido más alto que el espacio disponible desplazándolo con el dedo. Aquí también se puede saltar al final con un botón."
+            app:nombre="Contenedor con desplazamiento vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/contenedor_desplazable"
+                style="@style/FondoDemo"
+                android:layout_height="180dp">
+
+                <LinearLayout
+                    android:id="@+id/parrafos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="4dp" />
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/texto_desplazamiento"
+                    style="@style/TextoResultado"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Desplazamiento: 0 px" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_desplazar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Ir al final" />
+            </LinearLayout>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Barra superior -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="MaterialToolbar + menú XML"
+            app:descripcion="Muestra el título de la pantalla y las acciones más frecuentes. Las acciones que no caben se agrupan en un menú de desbordamiento (tres puntos)."
+            app:nombre="Barra superior con título y acciones">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/barra_demo"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/fondo_barra_demo"
+                app:menu="@menu/menu_demo_barra"
+                app:navigationContentDescription="Menú"
+                app:navigationIcon="@drawable/ic_menu"
+                app:title="Mis notas" />
+
+            <TextView
+                android:id="@+id/resultado_barra"
+                style="@style/TextoResultado"
+                android:text="Acción: Pulsa un ícono de la barra." />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Navegación inferior -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="BottomNavigationView + menú XML"
+            app:descripcion="Da acceso directo a entre tres y cinco destinos principales. Esta app usa además un menú lateral (DrawerLayout + NavigationView) para moverse entre secciones."
+            app:nombre="Barra de navegación inferior">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contenido_navegacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:text="Contenido de la pantalla de inicio"
+                        app:drawableTopCompat="@drawable/ic_home" />
+
+                    <com.google.android.material.bottomnavigation.BottomNavigationView
+                        android:id="@+id/navegacion_inferior"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:menu="@menu/menu_demo_navegacion"
+                        app:paddingBottomSystemWindowInsets="false" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+
+        <!-- Restricciones y pesos -->
+        <com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView
+            style="@style/Tarjeta"
+            app:componente="ConstraintLayout + cadena con pesos"
+            app:descripcion="Cada vista se posiciona con restricciones respecto a otras. Aquí A y B forman una cadena horizontal y reparten el ancho según su peso; mueve el deslizador para cambiar el de A."
+            app:nombre="Distribución con restricciones y pesos">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/demo_restricciones"
+                style="@style/FondoDemo"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/bloque_peso_a"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bloque_a"
+                    android:gravity="center"
+                    android:text="A · 1"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintEnd_toStartOf="@id/bloque_peso_b"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bloque_peso_b"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bloque_b"
+                    android:gravity="center"
+                    android:text="B · 1"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/bloque_peso_a"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- C queda anclado debajo de B y alineado a su borde derecho. -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bloque_c"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:text="C: debajo de B, alineado a su fin"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="@id/bloque_peso_b"
+                    app:layout_constraintTop_toBottomOf="@id/bloque_peso_b" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/deslizador_peso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Peso del bloque A"
+                android:stepSize="1"
+                android:value="1"
+                android:valueFrom="1"
+                android:valueTo="5" />
+
+            <TextView
+                android:id="@+id/resultado_pesos"
+                style="@style/TextoResultado"
+                android:layout_marginTop="0dp"
+                android:text="A ocupa 50 % del ancho y B el 50 %" />
+        </com.javiergamez.catalogoui.views.componentes.ElementoCatalogoView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
