@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lenguajes">
+        <item>Kotlin</item>
+        <item>Dart</item>
+        <item>Java</item>
+        <item>Swift</item>
+        <item>C#</item>
+        <item>JavaScript</item>
+    </string-array>
+
+    <string-array name="intereses">
+        <item>Música</item>
+        <item>Deportes</item>
+        <item>Tecnología</item>
+        <item>Viajes</item>
+        <item>Cine</item>
+        <item>Arte</item>
+    </string-array>
+
+    <array name="rango_precio">
+        <item>200</item>
+        <item>800</item>
+    </array>
+</resources>
